@@ -1,6 +1,9 @@
 import React from 'react'
 import ListItem from './ListItem'
 import {useState} from 'react'
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Grid from '@material-ui/core/Grid';
 
 const List = () => {
     const [listItems, setListItems]=useState([ 
@@ -14,7 +17,7 @@ const List = () => {
 
     const addListItem=()=>{
         console.log("Adding new list item: "+formText)
-        setListItems([...listItems, formText])
+        setListItems(   [...listItems, formText]     )
     }
 
     const saveText=(inputText)=>{
@@ -24,21 +27,28 @@ const List = () => {
 
     return (
         <div>
-            
-            <input type='text' onChange={
+            <TextField variant="outlined" onChange={
                     (event)=>{
                         saveText(event.target.value)
                     }
                 }
             />
-            <button onClick={()=>addListItem()}>click</button>
-            {
-                listItems.map(
-                    (itemName)=>{   
-                        return <ListItem name= {itemName}/> 
-                    }
-                )
-            }
+           
+            <Button onClick={()=>addListItem()}>click</Button>
+            <div className="Space"/>
+            <Grid container alignItems="center" direction="column"  justify="flex-start" spacing={3}>
+                {
+                    listItems.map(
+                        (itemName)=>{   
+                            return (
+                                <Grid item>
+                                    <ListItem name= {itemName}/>
+                                </Grid>
+                            ) 
+                        }
+                    )
+                }
+            </Grid>
         </div>
     )
 }

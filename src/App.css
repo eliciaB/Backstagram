@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  align-items: center;
 }
 
 .HeaderStyle {
@@ -12,9 +13,18 @@
 }
 
 .ListItemStyle {
-  margin-top: 50px;
   background-color: white;
   font-size: large;
+  width: 150px;
+}
+
+.Space {
+  height: 20px;
+}
+
+.ListItemNameContainerStyle {
+  padding: 10px;
+
 }
 
 .App-logo {

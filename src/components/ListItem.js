@@ -1,9 +1,14 @@
 import React from 'react'
+import Paper from '@material-ui/core/Paper';
 
 const ListItem = ({name}) => {
     return (
         <div className="ListItemStyle">
-            {name}
+            <Paper>
+                <div className="ListItemNameContainerStyle">
+                    {name}
+                </div>
+            </Paper> 
         </div>
     )
 }
