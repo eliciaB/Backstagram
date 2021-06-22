@@ -20,6 +20,21 @@ const List = () => {
         setListItems(   [...listItems, formText]     )
     }
 
+    const deleteListItem=(deleteListItemName)=>{
+        const newList= listItems.filter(
+            (itemName)=>{   
+                if (itemName==deleteListItemName) {
+                    return false
+                } else {
+                    return true
+                }
+            }
+        )
+        
+        setListItems([...newList])
+    }
+
+
     const saveText=(inputText)=>{
         console.log(inputText)
         setFormText(inputText)
@@ -42,7 +57,7 @@ const List = () => {
                         (itemName)=>{   
                             return (
                                 <Grid item>
-                                    <ListItem name= {itemName}/>
+                                    <ListItem name= {itemName} deleteListItem={deleteListItem}/>
                                 </Grid>
                             ) 
                         }

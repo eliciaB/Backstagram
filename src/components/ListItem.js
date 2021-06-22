@@ -4,7 +4,7 @@ import ClearSharpIcon from '@material-ui/icons/ClearSharp';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 
-const ListItem = ({name}) => {
+const ListItem = ({name, deleteListItem}) => {
     return (
         <div className="ListItemStyle">
             <Paper>
@@ -15,7 +15,7 @@ const ListItem = ({name}) => {
                         </div>
                     </Grid>
                     <Grid item> 
-                        <Button>
+                        <Button onClick={()=>deleteListItem(name)}>
                             <ClearSharpIcon></ClearSharpIcon> 
                         </Button>
                     </Grid>
