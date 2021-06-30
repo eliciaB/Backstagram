@@ -4,18 +4,18 @@ import ClearSharpIcon from '@material-ui/icons/ClearSharp';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 
-const ListItem = ({name, deleteListItem}) => {
+const ListItem = ({item, deleteListItem}) => {
     return (
         <div className="ListItemStyle">
             <Paper>
                 <Grid container direction="row" justify="space-between" alignItems="center">
                     <Grid item> 
                         <div className="ListItemNameContainerStyle">
-                            {name}
+                            {item.content}
                         </div>
                     </Grid>
                     <Grid item> 
-                        <Button onClick={()=>deleteListItem(name)}>
+                        <Button onClick={()=>deleteListItem(item.id)}>
                             <ClearSharpIcon></ClearSharpIcon> 
                         </Button>
                     </Grid>
