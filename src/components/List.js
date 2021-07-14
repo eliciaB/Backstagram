@@ -5,7 +5,6 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 
-
 const tempPlace = () => {
     const exampleTodoJsonObject = {
         id: 5,
@@ -17,27 +16,33 @@ const List = () => {
     const [listItems, setListItems]=useState([ 
         {
             id: 0,
-            content: "anything"
+            content: "anything",
+            liked: false
         }, 
         {
             id: 1,
-            content: "hand"
+            content: "hand",
+            liked: false
         }, 
         {
             id: 2,
-            content: "pretzel"
+            content: "pretzel",
+            liked: false
         },
         {
             id: 3,
-            content: "banana"
+            content: "banana",
+            liked: false
         },
         {
             id: 4,
-            content: "dog"
+            content: "dog",
+            liked: false
         },
         {
             id: 5,
-            content: "milk"
+            content: "milk",
+            liked: false
         }
     ])
     const [formText, setFormText]=useState("")
@@ -47,7 +52,8 @@ const List = () => {
         const newId = listItems[listItems.length-1].id+1;
         const newTodoItem = {
             id: newId,
-            content: formText
+            content: formText,
+            liked: false
         }
         setListItems(   [...listItems, newTodoItem]     )
     }
@@ -66,6 +72,20 @@ const List = () => {
         setListItems([...newList])
     }
 
+    const likeFunction=(likeInput)=>{
+        console.log(likeInput)
+        const newList= listItems.map(
+            (todoItem)=>{   
+                if ( todoItem.id == likeInput) {
+                    return {...todoItem,liked: !todoItem.liked}
+                } else {
+                    return todoItem
+                }
+            }
+        )
+       console.log([...newList]) 
+        setListItems([...newList])
+    }
 
     const saveText=(inputText)=>{
         console.log(inputText)
@@ -89,7 +109,7 @@ const List = () => {
                         (todoItem)=>{   
                             return (
                                 <Grid item>
-                                    <ListItem item={todoItem} deleteListItem={deleteListItem}/>
+                                    <ListItem item={todoItem} deleteListItem={deleteListItem} likeFunction={likeFunction}/>
                                 </Grid>
                             ) 
                         }

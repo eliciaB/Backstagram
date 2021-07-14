@@ -18,6 +18,10 @@
   min-width: 150px;
 }
 
+.LikedItemStyle {
+  color: red;
+}
+
 .Space {
   height: 20px;
 }
