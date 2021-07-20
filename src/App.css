@@ -3,14 +3,12 @@
   align-items: center;
 }
 
-.HeaderTextStyle {
-  text-align: left;
-  margin-left: 15%;
+.ImageTitleContainer {
+  margin-right: 60%;
 }
 
 .ImageStyleLogo {
   width: 80px;
-  margin-right: 66%;
   margin-top: 30px;
 }
 

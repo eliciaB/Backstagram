@@ -8,7 +8,7 @@ const Header = (props) => {
     return ( 
         <div className="HeaderStyle">
             <Slide direction="left" timeout={7000} in={true} mountOnEnter unmountOnExit>
-               <div> 
+               <div className="ImageTitleContainer"> 
                     <img className="ImageStyleLogo" src={logo} alt="Logo" />
                     <h1 className="HeaderTextStyle">{props.title}</h1>
                </div>
