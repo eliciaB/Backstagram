@@ -3,7 +3,19 @@
   align-items: center;
 }
 
+.HeaderTextStyle {
+  text-align: left;
+  margin-left: 15%;
+}
+
+.ImageStyleLogo {
+  width: 80px;
+  margin-right: 66%;
+  margin-top: 30px;
+}
+
 .HeaderStyle {
+  align-items: left;
   color: blue;
   background-color: black;
 }
