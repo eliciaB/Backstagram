@@ -27,7 +27,7 @@ const ListItem = ({item, deleteListItem, likeFunction}) => {
                     </Grid>
                 </Grid>
                
-                        
+        
            
            
            </Paper> 
