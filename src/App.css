@@ -3,6 +3,10 @@
   align-items: center;
 }
 
+.InstaPostCard {
+  padding: 12px;
+}
+
 .ImageTitleContainer {
   margin-right: 60%;
 }
