@@ -3,6 +3,11 @@
   align-items: center;
 }
 
+.InstaPostFormStyle {
+  padding: 12px;
+
+}
+
 .InstaPostCard {
   padding: 12px;
 }
