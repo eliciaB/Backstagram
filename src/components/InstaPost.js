@@ -11,22 +11,15 @@ import ShareIcon from '@material-ui/icons/Share'
 import CardMedia from '@material-ui/core/CardMedia'
 import {useState} from 'react'
 
-
-const InstaPost = () => {
-    const [imgSrc, setImgSrc]=useState("")
-
-    const upoloadImage =(imgFile) => {
-        console.log("uploadingImage")
-        console.log(imgFile)
-        
-        const tempImgSrc=URL.createObjectURL(imgFile)
-        setImgSrc(tempImgSrc)
-        console.log(tempImgSrc)
-    }    
+/**
+ * this is a react component created as a function
+ * this component emulates an instagram post
+ */
+function InstaPost(props) {
+    
 
     return (
         <div>
-            <input type="file" onChange={(e)=>upoloadImage(e.target.files[0])}/>
             <Card className="InstaPostCard"> 
                 <CardHeader
                     avatar={
@@ -41,8 +34,9 @@ const InstaPost = () => {
                     title="skljei"
                     subheader="fkljf"
                 />
+                {/* this image tag will display image at location stored in props.imgURL */}
                 <img className="InstaPostMediaStyle"
-                    src={imgSrc}
+                    src={props.imgURL}
                     alt=""
                 />
 

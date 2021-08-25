@@ -3,6 +3,10 @@
   align-items: center;
 }
 
+.HiddenStyle {
+  display: none;
+}
+
 .InstaPostFormStyle {
   padding: 12px;
 
