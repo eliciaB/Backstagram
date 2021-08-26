@@ -45,7 +45,7 @@ const List = () => {
             liked: false
         }
     ])
-    const [formText, setFormText]=useState("")
+    const [formText, setFormText]=React.useState("")
 
     const addListItem=()=>{
         console.log("Adding new list item: "+formText)
@@ -87,13 +87,14 @@ const List = () => {
         setListItems([...newList])
     }
 
-    const saveText=(inputText)=>{
+    function saveText(inputText) {
         console.log(inputText)
         setFormText(inputText)
     }
 
     return (
         <div>
+            {/* textbox for adding listItems */}
             <TextField variant="outlined" onChange={
                     (event)=>{
                         saveText(event.target.value)

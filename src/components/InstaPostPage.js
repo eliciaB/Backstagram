@@ -8,12 +8,29 @@ import InstaPost from './InstaPost'
  * creating instaPosts and all of the instaPosts
  */
 function InstaPostPage() {
-    const [newPostImgURL, setNewPostImgURL] = React.useState(null)
+    const [newPost, setNewPost] = React.useState({
+        id: 0,
+        caption: "",
+        imgURL: "",
+        liked: false
+    })
     
+    function addInstaPost(newPostImgURL, newPostCaption) {
+        setNewPost({
+            id: 0,
+            caption: newPostCaption,
+            imgURL: newPostImgURL,
+            liked: false
+            
+        })
+
+    }
+
+
     return (
         <div>
-            <InstaPostForm setNewPostImgURL={setNewPostImgURL}/>
-            <InstaPost imgURL={newPostImgURL}/>
+            <InstaPostForm addInstaPost={addInstaPost}/>
+            <InstaPost instaPostJSON={newPost} />
         </div>
     )
 }

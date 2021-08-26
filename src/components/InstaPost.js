@@ -36,12 +36,12 @@ function InstaPost(props) {
                 />
                 {/* this image tag will display image at location stored in props.imgURL */}
                 <img className="InstaPostMediaStyle"
-                    src={props.imgURL}
+                    src={props.instaPostJSON.imgURL}
                     alt=""
                 />
 
                 <CardContent>
-                    OMGG feeling cuteee might delete later
+                    {props.instaPostJSON.caption}
                 </CardContent>
                 <CardActions disableSpacing>
                     <IconButton>

@@ -6,6 +6,8 @@ import React from 'react'
  *  this is a form for creating new instaPosts
  */
 function InstaPostForm(props) {
+    const [formText, setFormText] = React.useState("")
+    const [formImgURL, setFormImgURL] = React.useState(null)
     
     // Create a reference to the hidden file input element
     const hiddenFileInput = React.useRef(null);
@@ -15,8 +17,8 @@ function InstaPostForm(props) {
         console.log(imgFile)
         // creating location address for image file
         const tempImgSrc=URL.createObjectURL(imgFile)
-        // sending the location address of the image file to the InstaPostPage
-        props.setNewPostImgURL(tempImgSrc)
+        // saving the location address of the image file to formImgURL
+        setFormImgURL(tempImgSrc)
         console.log(tempImgSrc)
     }    
 
@@ -28,7 +30,16 @@ function InstaPostForm(props) {
                     direction="row"
                     justify="center"
                 >
-                    <Grid item xs><TextField variant="outlined"/></Grid>
+                    <Grid item xs>
+                        <TextField variant="outlined" 
+                            onChange={
+                                (event)=>{
+                                    // the text inside the TextField is stored in event.target.value
+                                    setFormText(event.target.value)
+                                }
+                            }
+                        />
+                    </Grid>
                     <Grid item container xs
                         alignItems="center" 
                         direction="column"
@@ -46,7 +57,9 @@ function InstaPostForm(props) {
                             onChange={(e)=>uploadImage(e.target.files[0])}
                         />
 
-                        <Button> Post </Button>
+                        <Button onClick={()=>props.addInstaPost(formImgURL, formText)}>
+                             Post 
+                        </Button>
                     </Grid>
                 </Grid>
             </Paper>
