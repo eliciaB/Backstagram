@@ -25,6 +25,10 @@ function InstaPostForm(props) {
     return (
         <div>
             <Paper className="InstaPostFormStyle">
+                <img className="InstaPostMediaStyle"
+                    src={formImgURL}
+                    alt=""
+                />
                 <Grid container 
                     alignItems="center" 
                     direction="row"
