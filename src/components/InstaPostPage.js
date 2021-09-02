@@ -12,7 +12,9 @@ function InstaPostPage() {
         id: 0,
         caption: "",
         imgURL: "",
-        liked: false
+        liked: false,
+        name: "Elicia Back",
+        time: new Date().toString()
     })
     
     function addInstaPost(newPostImgURL, newPostCaption) {
@@ -20,7 +22,9 @@ function InstaPostPage() {
             id: 0,
             caption: newPostCaption,
             imgURL: newPostImgURL,
-            liked: false
+            liked: false,
+            name: "Elicia Back",
+            time: new Date().toString()
             
         })
 

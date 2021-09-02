@@ -31,10 +31,10 @@ function InstaPost(props) {
                             <MoreVertIcon />
                         </IconButton>
                     }
-                    title="skljei"
-                    subheader="fkljf"
+                    title={props.instaPostJSON.name}
+                    subheader={props.instaPostJSON.time}
                 />
-                {/* this image tag will display image at location stored in props.imgURL */}
+                {/* this image tag will display image at location stored in props.istaPostJSON.imgURL */}
                 <img className="InstaPostMediaStyle"
                     src={props.instaPostJSON.imgURL}
                     alt=""
