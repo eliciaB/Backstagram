@@ -35,7 +35,8 @@ function InstaPostForm(props) {
                     justify="center"
                 >
                     <Grid item xs>
-                        <TextField variant="outlined" 
+                        <TextField variant="outlined"
+                            value={formText} 
                             onChange={
                                 (event)=>{
                                     // the text inside the TextField is stored in event.target.value
@@ -61,7 +62,11 @@ function InstaPostForm(props) {
                             onChange={(e)=>uploadImage(e.target.files[0])}
                         />
 
-                        <Button onClick={()=>props.addInstaPost(formImgURL, formText)}>
+                        <Button onClick={()=>{
+                            setFormImgURL(null)
+                            setFormText("")
+                            props.addInstaPost(formImgURL, formText)
+                        }}>
                              Post 
                         </Button>
                     </Grid>
