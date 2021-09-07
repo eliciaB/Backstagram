@@ -1,6 +1,7 @@
 import React from 'react'
 import InstaPostForm from './InstaPostForm'
 import InstaPost from './InstaPost'
+import Grid from '@material-ui/core/Grid'
 
 /**
  * this is a react component created as a function
@@ -17,6 +18,25 @@ function InstaPostPage() {
         time: new Date().toString()
     })
     
+    const [instaPostList, setInstaPostList] = React.useState([
+       { 
+            id: 0,
+            caption: "iefjkjdsd",
+            imgURL: "",
+            liked: false,
+            name: "Elicia Back",
+            time: new Date().toString()
+        },
+        { 
+            id: 1,
+            caption: "jfojlak",
+            imgURL: "",
+            liked: false,
+            name: "Elicia Back",
+            time: new Date().toString()
+        },    
+    ])
+
     function addInstaPost(newPostImgURL, newPostCaption) {
         setNewPost({
             id: 0,
@@ -35,6 +55,19 @@ function InstaPostPage() {
         <div>
             <InstaPostForm addInstaPost={addInstaPost}/>
             <InstaPost instaPostJSON={newPost} />
+            <Grid container alignItems="center" direction="column"  justify="flex-start" spacing={3}>
+                {
+                    instaPostList.map(
+                        (instaPostJSONFromList)=>{   
+                            return (
+                                <Grid item>
+                                    <InstaPost instaPostJSON={instaPostJSONFromList}/>
+                                </Grid>
+                            ) 
+                        }
+                    )
+                }
+            </Grid>
         </div>
     )
 }
