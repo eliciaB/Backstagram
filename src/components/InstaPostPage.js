@@ -9,14 +9,7 @@ import Grid from '@material-ui/core/Grid'
  * creating instaPosts and all of the instaPosts
  */
 function InstaPostPage() {
-    const [newPost, setNewPost] = React.useState({
-        id: 0,
-        caption: "",
-        imgURL: "",
-        liked: false,
-        name: "Elicia Back",
-        time: new Date().toString()
-    })
+
     
     const [instaPostList, setInstaPostList] = React.useState([
        { 
@@ -38,23 +31,24 @@ function InstaPostPage() {
     ])
 
     function addInstaPost(newPostImgURL, newPostCaption) {
-        setNewPost({
-            id: 0,
+        // creating new ID for new insta post
+        const newId = instaPostList[instaPostList.length-1].id+1;
+        const newInstaPost = {
+            id: newId,
             caption: newPostCaption,
             imgURL: newPostImgURL,
-            liked: false,
+            liked: false, 
             name: "Elicia Back",
             time: new Date().toString()
-            
-        })
-
+        }
+        
+        setInstaPostList(   [...instaPostList, newInstaPost])
     }
 
 
     return (
         <div>
             <InstaPostForm addInstaPost={addInstaPost}/>
-            <InstaPost instaPostJSON={newPost} />
             <Grid container alignItems="center" direction="column"  justify="flex-start" spacing={3}>
                 {
                     instaPostList.map(

@@ -49,12 +49,17 @@ const List = () => {
 
     const addListItem=()=>{
         console.log("Adding new list item: "+formText)
+        // creating new ID for the new list item
         const newId = listItems[listItems.length-1].id+1;
+
+        // creating JSON for the new to do item
         const newTodoItem = {
             id: newId,
             content: formText,
             liked: false
         }
+
+        // taking out original list items and adding them to new list with new to do item
         setListItems(   [...listItems, newTodoItem]     )
     }
 
