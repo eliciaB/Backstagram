@@ -6,19 +6,35 @@ import Button from '@material-ui/core/Button';
 console.log(logo);
 
 const Header = (props) => {
+    const [title, setTitle] = React.useState("Backstagram")
+    const [subtitle, setSubtitle] = React.useState("Not today, Satan")
+    
+    function updateHeader(newPage) {
+        if (newPage === "instaPostPage") {
+            setTitle("Backstagram")
+            setSubtitle("Not today, Satan")
+        }
+        if (newPage === "toDoPage") {
+            setTitle("To Do List")
+            setSubtitle("Do it.")
+        }
+
+        props.changePage(newPage)
+    }
+
     return ( 
         <div className="HeaderStyle">
             <Slide direction="left" timeout={7000} in={true} mountOnEnter unmountOnExit>
                <div className="ImageTitleContainer"> 
                     <img className="ImageStyleLogo" src={logo} alt="Logo" />
-                    <h1 className="HeaderTextStyle">{props.title}</h1>
+                    <h1 className="HeaderTextStyle">{title}</h1>
                </div>
             </Slide> 
-            <h2 className= "Style2">Do It.</h2>
-            <Button onClick={()=>props.changePage("instaPostPage")}>
+            <h2 className= "Style2">{subtitle}</h2>
+            <Button onClick={()=>updateHeader("instaPostPage")}>
                 InstaPostPage
             </Button>
-            <Button onClick={()=>props.changePage("toDoPage")}>
+            <Button onClick={()=>updateHeader("toDoPage")}>
                 ToDoPage
             </Button>
         </div>
