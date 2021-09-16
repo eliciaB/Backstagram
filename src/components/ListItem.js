@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import FavoriteOutlinedIcon from '@material-ui/icons/FavoriteOutlined';
 
-const ListItem = ({item, deleteListItem, likeFunction}) => {
+function ListItem(props) {
 
 
     return (
@@ -14,14 +14,14 @@ const ListItem = ({item, deleteListItem, likeFunction}) => {
                 <Grid container direction="row" justify="space-between" alignItems="center">
                     <Grid item> 
                         <div className="ListItemNameContainerStyle">
-                            <Button onClick={()=>likeFunction(item.id)}>
-                                <FavoriteOutlinedIcon style={{color: item.liked ? "red" : "black"}}></FavoriteOutlinedIcon>
+                            <Button onClick={()=>props.likeFunction(props.item.id)}>
+                                <FavoriteOutlinedIcon style={{color: props.item.liked ? "red" : "black"}}></FavoriteOutlinedIcon>
                             </Button>
-                            {item.content}
+                            {props.item.content}
                         </div>
                     </Grid>
                     <Grid item> 
-                        <Button onClick={()=>deleteListItem(item.id)}>
+                        <Button onClick={()=>props.deleteListItem(props.item.id)}>
                             <ClearSharpIcon></ClearSharpIcon> 
                         </Button>
                     </Grid>
