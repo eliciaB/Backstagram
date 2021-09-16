@@ -10,11 +10,12 @@
 .InstaPostFormStyle {
   padding: 12px;
   margin-bottom: 16px;
-
+  width: 560px;
 }
 
 .InstaPostCard {
   padding: 12px;
+  width: 560px;
 }
 
 .InstaPostMediaStyle {
