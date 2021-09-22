@@ -76,9 +76,14 @@ const List = () => {
         
         setListItems([...newList])
     }
-
+    /**
+     * likeFunction sorts through all the listItem JSON objects 
+     * in the listItens list and toggle like attribute for the 
+     * listItem with ID=likeInput
+     * 
+     * @param {*} likeInput the ID of the listItem to be liked/unliked
+     */
     const likeFunction=(likeInput)=>{
-        console.log(likeInput)
         const newList= listItems.map(
             (todoItem)=>{   
                 if ( todoItem.id == likeInput) {
@@ -88,8 +93,7 @@ const List = () => {
                 }
             }
         )
-       console.log([...newList]) 
-        setListItems([...newList])
+        setListItems(newList)
     }
 
     function saveText(inputText) {

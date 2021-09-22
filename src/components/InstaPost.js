@@ -44,8 +44,8 @@ function InstaPost(props) {
                     {props.instaPostJSON.caption}
                 </CardContent>
                 <CardActions disableSpacing>
-                    <IconButton>
-                        <FavoriteIcon />
+                    <IconButton onClick={()=>props.likeFunction(props.instaPostJSON.id)}> 
+                        <FavoriteIcon style={{color: props.instaPostJSON.liked ? "red" : "black"}}/>
                     </IconButton>
                     <IconButton>
                         <ShareIcon />

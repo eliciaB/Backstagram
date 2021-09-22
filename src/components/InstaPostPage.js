@@ -12,14 +12,6 @@ function InstaPostPage() {
 
     
     const [instaPostList, setInstaPostList] = React.useState([
-       { 
-            id: 0,
-            caption: "iefjkjdsd",
-            imgURL: "",
-            liked: false,
-            name: "Elicia Back",
-            time: new Date().toString()
-        },
         { 
             id: 1,
             caption: "jfojlak",
@@ -45,6 +37,26 @@ function InstaPostPage() {
         setInstaPostList(   [...instaPostList, newInstaPost])
     }
 
+    /**
+     * likeFunction sorts through all the instaPost JSON objects 
+     * in the instaPost list and toggle like attribute for the 
+     * instaPost with ID=likeInput
+     * 
+     * @param {*} likeInput the ID of the instaPost to be liked/unliked
+     */
+    function likeFunction(likeInput) {
+        const newList= instaPostList.map(
+            (instaPost)=>{   
+                if ( instaPost.id == likeInput) {
+                    return {...instaPost,liked: !instaPost.liked}
+                } else {
+                    return instaPost
+                }
+            }
+        )
+        setInstaPostList(newList)
+    }
+
 
     return (
         <div>
@@ -55,7 +67,9 @@ function InstaPostPage() {
                         (instaPostJSONFromList)=>{   
                             return (
                                 <Grid item>
-                                    <InstaPost instaPostJSON={instaPostJSONFromList}/>
+                                    <InstaPost instaPostJSON={instaPostJSONFromList}
+                                        likeFunction={likeFunction}
+                                    />
                                 </Grid>
                             ) 
                         }
