@@ -1,0 +1,37 @@
+when does a react component function run?
+1.) when we first open up a site
+2.) whenever a state variable is changed
+
+why do we want to tell react when the state variable changed?
+1.) so react knows to update it
+
+NEW CHALLENGE
+-create 2 new pages
+    -login page and sign up page
+        -login page must take in email and password and when submitted, 
+            should console log what was email and password
+            then navigate to the instapost page
+                1.) create login page component
+                2.) create "look" of login page
+                3.) create functions for getting data
+                4.) create submit function
+                5.) connect them
+                6.) add functionality to navigate to instapost page
+
+
+
+        -sign up page should take email, 
+            password and make confirm password,
+            take first and last name,
+            log all information then navigate to the login page
+                1.) create sign up page
+                2.) create the outline of sign up page
+                3.) create the functions for getting data
+                4.) create submit function
+                5.) connect them
+                6.) add functionality to navigate to login page
+
+        -sign up should show error if reentered password does not match original password
+
+
+

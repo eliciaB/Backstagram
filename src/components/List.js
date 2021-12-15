@@ -5,12 +5,6 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 
-const tempPlace = () => {
-    const exampleTodoJsonObject = {
-        id: 5,
-        content: "cookies"
-    }
-}
 
 const List = () => {
     const [listItems, setListItems]=useState([ 
@@ -25,22 +19,22 @@ const List = () => {
             liked: false
         }, 
         {
-            id: 2,
+            id: 9,
             content: "pretzel",
             liked: false
         },
         {
-            id: 3,
+            id: 40,
             content: "banana",
             liked: false
         },
         {
-            id: 4,
+            id: 44,
             content: "dog",
             liked: false
         },
         {
-            id: 5,
+            id: 100,
             content: "milk",
             liked: false
         }
@@ -53,28 +47,22 @@ const List = () => {
         const newId = listItems[listItems.length-1].id+1;
 
         // creating JSON for the new to do item
-        const newTodoItem = {
+        const newListItem = {
             id: newId,
             content: formText,
             liked: false
         }
 
         // taking out original list items and adding them to new list with new to do item
-        setListItems(   [...listItems, newTodoItem]     )
+        setListItems(   [...listItems, newListItem]     )
     }
 
     const deleteListItem=(deletedListItemId)=>{
         const newList= listItems.filter(
-            (todoItem)=>{   
-                if ( todoItem.id == deletedListItemId) {
-                    return false
-                } else {
-                    return true
-                }
-            }
+            listItem => listItem.id != deletedListItemId
         )
         
-        setListItems([...newList])
+        setListItems(newList)
     }
     /**
      * likeFunction sorts through all the listItem JSON objects 
@@ -83,13 +71,18 @@ const List = () => {
      * 
      * @param {*} likeInput the ID of the listItem to be liked/unliked
      */
-    const likeFunction=(likeInput)=>{
+    const likeListItem=(likedListItemId)=>{
         const newList= listItems.map(
-            (todoItem)=>{   
-                if ( todoItem.id == likeInput) {
-                    return {...todoItem,liked: !todoItem.liked}
+            (listItem)=>{   
+                if ( listItem.id == likedListItemId) {
+                    // return {...listItem, liked: !listItem.liked}
+                    return {
+                        id: listItem.id,
+                        content: listItem.content,
+                        liked: !listItem.liked
+                    }
                 } else {
-                    return todoItem
+                    return listItem
                 }
             }
         )
@@ -116,10 +109,10 @@ const List = () => {
             <Grid container alignItems="center" direction="column"  justify="flex-start" spacing={3}>
                 {
                     listItems.map(
-                        (todoItem)=>{   
+                        (listItem)=>{   
                             return (
                                 <Grid item>
-                                    <ListItem item={todoItem} deleteListItem={deleteListItem} likeFunction={likeFunction}/>
+                                    <ListItem item={listItem} deleteListItem={deleteListItem} likeListItem={likeListItem}/>
                                 </Grid>
                             ) 
                         }

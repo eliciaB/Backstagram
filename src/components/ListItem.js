@@ -14,7 +14,7 @@ function ListItem(props) {
                 <Grid container direction="row" justify="space-between" alignItems="center">
                     <Grid item> 
                         <div className="ListItemNameContainerStyle">
-                            <Button onClick={()=>props.likeFunction(props.item.id)}>
+                            <Button onClick={()=>props.likeListItem(props.item.id)}>
                                 <FavoriteOutlinedIcon style={{color: props.item.liked ? "red" : "black"}}></FavoriteOutlinedIcon>
                             </Button>
                             {props.item.content}

@@ -2,6 +2,9 @@ import React from 'react'
 import InstaPostForm from './InstaPostForm'
 import InstaPost from './InstaPost'
 import Grid from '@material-ui/core/Grid'
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
+import Modal from '@material-ui/core/Modal';
 
 /**
  * this is a react component created as a function
@@ -10,6 +13,7 @@ import Grid from '@material-ui/core/Grid'
  */
 function InstaPostPage() {
 
+    const [openForm, setOpenForm] = React.useState(false)
     
     const [instaPostList, setInstaPostList] = React.useState([
         { 
@@ -76,6 +80,12 @@ function InstaPostPage() {
                     )
                 }
             </Grid>
+            <Fab onClick={()=>setOpenForm(true)}>
+                <AddIcon/>
+            </Fab>
+            <Modal open={openForm} onClose={()=>setOpenForm(false)}>
+                <InstaPostForm addInstaPost={addInstaPost}/>
+            </Modal>
         </div>
     )
 }
