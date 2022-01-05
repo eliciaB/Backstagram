@@ -61,7 +61,7 @@ function InstaPostPage() {
         setInstaPostList(newList)
     }
 
-
+    
     return (
         <div>
             <InstaPostForm addInstaPost={addInstaPost}/>

@@ -3,6 +3,12 @@
   align-items: center;
 }
 
+.LoginPageForm {
+  padding: 12px;
+  margin-bottom: 16px;
+  width: 560px;
+}
+
 .HiddenStyle {
   display: none;
 }

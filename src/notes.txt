@@ -11,9 +11,9 @@ NEW CHALLENGE
         -login page must take in email and password and when submitted, 
             should console log what was email and password
             then navigate to the instapost page
-                1.) create login page component
-                2.) create "look" of login page
-                3.) create functions for getting data
+                1.) create login page component (done)
+                2.) create "look" of login page (done)
+                3.) create functions for getting data (done)
                 4.) create submit function
                 5.) connect them
                 6.) add functionality to navigate to instapost page
