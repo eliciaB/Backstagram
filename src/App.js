@@ -11,7 +11,7 @@ import InstaPostPage from './components/InstaPostPage';
 import LoginPage from './components/LoginPage';
 
 function App() {
-  const [displayElement, setDisplayElement] = React.useState(<InstaPostPage/>)
+  const [displayElement, setDisplayElement] = React.useState(<LoginPage/>)
 
 
   function changePage(newPage) {
@@ -21,12 +21,14 @@ function App() {
     if (newPage === "toDoPage") {
       setDisplayElement(<List/>)
     }
+    if (newPage === "loginPage") {
+      setDisplayElement(<LoginPage/>)
+    }
   }
 
   return (
     <div className="App">
       <Header title="To Do" changePage={changePage} />
-      <LoginPage />
       <Grid container direction="row" justify="center" alignItems="center"> 
         <Grid item>
           {

@@ -18,6 +18,10 @@ const Header = (props) => {
             setTitle("To Do List")
             setSubtitle("Do it.")
         }
+        if (newPage === "loginPage") {
+            setTitle("Login")
+            setSubtitle("")
+        }
 
         props.changePage(newPage)
     }
@@ -36,6 +40,9 @@ const Header = (props) => {
             </Button>
             <Button onClick={()=>updateHeader("toDoPage")}>
                 ToDoPage
+            </Button>
+            <Button onClick={()=>updateHeader("loginPage")}>
+                LoginPage
             </Button>
         </div>
     )
