@@ -11,24 +11,24 @@ import InstaPostPage from './components/InstaPostPage';
 import LoginPage from './components/LoginPage';
 
 function App() {
-  const [displayElement, setDisplayElement] = React.useState(<LoginPage/>)
+  const [displayElement, setDisplayElement] = React.useState()
+  const [pageName, setPageName] = React.useState("loginPage")
 
-
-  function changePage(newPage) {
-    if (newPage === "instaPostPage") {
+  React.useEffect(() => {
+    if (pageName === "instaPostPage") {
       setDisplayElement(<InstaPostPage/>)
     } 
-    if (newPage === "toDoPage") {
+    if (pageName === "toDoPage") {
       setDisplayElement(<List/>)
     }
-    if (newPage === "loginPage") {
-      setDisplayElement(<LoginPage/>)
+    if (pageName === "loginPage") {
+      setDisplayElement(<LoginPage changePage={setPageName}/>)
     }
-  }
+  }, [pageName])
 
   return (
     <div className="App">
-      <Header title="To Do" changePage={changePage} />
+      <Header title="To Do" changePage={setPageName} />
       <Grid container direction="row" justify="center" alignItems="center"> 
         <Grid item>
           {

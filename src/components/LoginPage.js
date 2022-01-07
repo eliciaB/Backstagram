@@ -1,10 +1,15 @@
 import { Paper, TextField, Button } from '@material-ui/core'
 import React from 'react'
 
-const LoginPage = () => {
+const LoginPage = (props) => {
     const [email, setEmail] = React.useState()
     const [password, setPassword] = React.useState()
 
+    const submitForm = () => {
+        console.log(email, password)
+
+        props.changePage("instaPostPage")
+    }
 
     return (
         <div>
@@ -28,7 +33,9 @@ const LoginPage = () => {
                         }
                     }
                 />
-                <Button>Submit</Button>
+                <Button onClick={()=>submitForm()}>
+                    Submit
+                </Button>
             </Paper>
 
         </div>

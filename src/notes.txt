@@ -14,8 +14,8 @@ NEW CHALLENGE
                 1.) create login page component (done)
                 2.) create "look" of login page (done)
                 3.) create functions for getting data (done)
-                4.) create submit function
-                5.) connect them
+                4.) create submit function (done)
+                5.) connect them (done)
                 6.) add functionality to navigate to instapost page
 
 
