@@ -3,6 +3,12 @@
   align-items: center;
 }
 
+.SignUpPageForm {
+  padding: 12px;
+  margin-bottom: 16px;
+  width: 560px;
+}
+
 .LoginPageForm {
   padding: 12px;
   margin-bottom: 16px;

@@ -16,7 +16,7 @@ NEW CHALLENGE
                 3.) create functions for getting data (done)
                 4.) create submit function (done)
                 5.) connect them (done)
-                6.) add functionality to navigate to instapost page
+                6.) add functionality to navigate to instapost page (done)
 
 
 
@@ -24,11 +24,11 @@ NEW CHALLENGE
             password and make confirm password,
             take first and last name,
             log all information then navigate to the login page
-                1.) create sign up page
-                2.) create the outline of sign up page
-                3.) create the functions for getting data
-                4.) create submit function
-                5.) connect them
+                1.) create sign up page (done)
+                2.) create the outline of sign up page (done)
+                3.) create the functions for getting data (done)
+                4.) create submit function (done)
+                5.) connect them (done)
                 6.) add functionality to navigate to login page
 
         -sign up should show error if reentered password does not match original password

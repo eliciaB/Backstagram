@@ -9,6 +9,7 @@ import InstaPost from './components/InstaPost';
 import { Grid } from '@material-ui/core';
 import InstaPostPage from './components/InstaPostPage';
 import LoginPage from './components/LoginPage';
+import SignUpPage from './components/SignUpPage';
 
 function App() {
   const [displayElement, setDisplayElement] = React.useState()
@@ -23,6 +24,9 @@ function App() {
     }
     if (pageName === "loginPage") {
       setDisplayElement(<LoginPage changePage={setPageName}/>)
+    }
+    if (pageName === "signUpPage") {
+      setDisplayElement(<SignUpPage changePage = {setPageName}/>)
     }
   }, [pageName])
 

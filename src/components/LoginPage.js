@@ -7,7 +7,6 @@ const LoginPage = (props) => {
 
     const submitForm = () => {
         console.log(email, password)
-
         props.changePage("instaPostPage")
     }
 
@@ -33,7 +32,7 @@ const LoginPage = (props) => {
                         }
                     }
                 />
-                <Button onClick={()=>submitForm()}>
+                <Button onClick = {() => submitForm()}>
                     Submit
                 </Button>
             </Paper>

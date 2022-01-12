@@ -35,16 +35,19 @@ const Header = (props) => {
                </div>
             </Slide> 
             <h2 className= "Style2">{subtitle}</h2>
-            <Button onClick={()=>updateHeader("instaPostPage")}>
+            <Button onClick = {() => updateHeader("instaPostPage")}>
                 InstaPostPage
             </Button>
-            <Button onClick={()=>updateHeader("toDoPage")}>
+            <Button onClick = {() => updateHeader("toDoPage")}>
                 ToDoPage
             </Button>
-            <Button onClick={()=>updateHeader("loginPage")}>
+            <Button onClick = {() => updateHeader("loginPage")}>
                 LoginPage
             </Button>
-        </div>
+            <Button onClick = {() => updateHeader("signUpPage")}>
+                SignUpPage
+            </Button>
+        </div> 
     )
 }
 
