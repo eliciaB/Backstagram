@@ -11,7 +11,23 @@ const SignUpPage = (props) => {
     const submitForm = () => {
         if ( password === confirmPassword) {
             console.log(firstName, lastName, email, password, confirmPassword)
-            props.changePage("loginPage")
+            fetch("https://id54gv4pxf.execute-api.us-east-2.amazonaws.com/v1/signup", {
+                method: "POST",
+                body: JSON.stringify({
+                    email: email,
+                    password: password,
+                    firstName: firstName,
+                    lastName: lastName
+                }),
+                headers: {
+                    "Content-Type": "application/json",
+                }
+            }).then(response => response.json()).then(responsejson => {
+                if (responsejson.statusCode === 200) {
+                    props.changePage("loginPage")
+                }
+            })    
+
         }
     
     }

@@ -29,7 +29,7 @@ NEW CHALLENGE
                 3.) create the functions for getting data (done)
                 4.) create submit function (done)
                 5.) connect them (done)
-                6.) add functionality to navigate to login page
+                6.) add functionality to navigate to login page (done)
 
         -sign up should show error if reentered password does not match original password
 
