@@ -7,12 +7,25 @@ const LoginPage = (props) => {
 
     const submitForm = () => {
         console.log(email, password)
-        props.changePage("instaPostPage")
+        fetch("https://id54gv4pxf.execute-api.us-east-2.amazonaws.com/v1/login", {
+            method: "POST",
+            body: JSON.stringify({
+                email: email,
+                password: password
+            }),
+            headers: {
+                "Content-Type": "application/json",
+            }
+        }).then(response => response.json()).then(responsejson => {
+            debugger
+            if (responsejson.statusCode === 200) {
+                props.changePage("instaPostPage")
+            }
+        }) 
     }
 
     return (
         <div>
-            loginPagePlaceholder
             <Paper className="LoginPageForm">
                 <TextField variant="outlined"
                     value={email}

@@ -10,6 +10,7 @@ import { Grid } from '@material-ui/core';
 import InstaPostPage from './components/InstaPostPage';
 import LoginPage from './components/LoginPage';
 import SignUpPage from './components/SignUpPage';
+import MySnackBar from './components/MySnackBar';
 
 function App() {
   const [displayElement, setDisplayElement] = React.useState()
@@ -40,6 +41,7 @@ function App() {
           }  
         </Grid>
       </Grid>
+      <MySnackBar/>
     </div>
   );
 }
