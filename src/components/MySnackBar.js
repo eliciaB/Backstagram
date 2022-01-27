@@ -12,6 +12,12 @@ const MySnackBar = (props) => {
         setOpen(false);
     };
 
+    React.useEffect(()=> {
+        if (props.message !=="passmessage") {
+            setOpen(true)
+        }
+    }, [props.message])
+
     const action = (
         <React.Fragment>
             <IconButton

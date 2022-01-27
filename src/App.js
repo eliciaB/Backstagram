@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 import './App.css';
@@ -15,6 +15,8 @@ import MySnackBar from './components/MySnackBar';
 function App() {
   const [displayElement, setDisplayElement] = React.useState()
   const [pageName, setPageName] = React.useState("loginPage")
+  const [userData, setUserData] = React.useState()
+  const [message, setMessage] = React.useState("passmessage")
 
   React.useEffect(() => {
     if (pageName === "instaPostPage") {
@@ -24,12 +26,18 @@ function App() {
       setDisplayElement(<List/>)
     }
     if (pageName === "loginPage") {
-      setDisplayElement(<LoginPage changePage={setPageName}/>)
+      setDisplayElement(<LoginPage changePage={setPageName} setUserData = {setUserData}/>)
     }
     if (pageName === "signUpPage") {
       setDisplayElement(<SignUpPage changePage = {setPageName}/>)
     }
   }, [pageName])
+
+  React.useEffect(()=>{
+    if (userData) {
+      setMessage("Welcome, " + userData.firstName)
+    }
+  }, [userData])
 
   return (
     <div className="App">
@@ -41,7 +49,7 @@ function App() {
           }  
         </Grid>
       </Grid>
-      <MySnackBar message = "Hey there!"/>
+      <MySnackBar message = {message}/>
     </div>
   );
 }

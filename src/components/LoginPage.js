@@ -17,8 +17,9 @@ const LoginPage = (props) => {
                 "Content-Type": "application/json",
             }
         }).then(response => response.json()).then(responsejson => {
-            debugger
             if (responsejson.statusCode === 200) {
+                const userData = JSON.parse(responsejson.body)
+                props.setUserData(userData)
                 props.changePage("instaPostPage")
             }
         }) 
