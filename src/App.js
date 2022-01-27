@@ -41,7 +41,7 @@ function App() {
           }  
         </Grid>
       </Grid>
-      <MySnackBar/>
+      <MySnackBar message = "Hey there!"/>
     </div>
   );
 }
