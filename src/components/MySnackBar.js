@@ -33,7 +33,6 @@ const MySnackBar = (props) => {
 
     return (
         <div>
-            <Button onClick={handleClick}>Open simple snackbar</Button>
             <Snackbar
                 open={open}
                 autoHideDuration={5000}
