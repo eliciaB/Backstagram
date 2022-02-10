@@ -13,13 +13,33 @@ function InstaPostForm(props) {
     const hiddenFileInput = React.useRef(null);
 
     function uploadImage(imgFile) {
-        console.log("uploadingImage")
-        console.log(imgFile)
-        // creating location address for image file
-        const tempImgSrc=URL.createObjectURL(imgFile)
-        // saving the location address of the image file to formImgURL
-        setFormImgURL(tempImgSrc)
-        console.log(tempImgSrc)
+        // console.log("uploadingImage")
+        // console.log(imgFile)
+        // // creating location address for image file
+        // const tempImgSrc=URL.createObjectURL(imgFile)
+        // // saving the location address of the image file to formImgURL
+        // setFormImgURL(tempImgSrc)
+        // console.log(tempImgSrc)
+
+        let formData = new FormData()
+        formData.append("file", imgFile)
+        fetch("https://id54gv4pxf.execute-api.us-east-2.amazonaws.com/v1/s3item", {
+            method: "POST",
+            body: formData, 
+            headers: {
+                "file-ext": ".jpg",
+                "Access-Control-Allow-Origin": "*"
+            }
+        }).then(response => response.json()).then(responsejson => {
+            if (responsejson.statusCode === 200) {
+                const imageData = JSON.parse(responsejson.body)
+                const imageUUID = imageData.item_s3_id
+                const imgURL = "https://id54gv4pxf.execute-api.us-east-2.amazonaws.com/v1/s3item/" + imageUUID
+                setFormImgURL(imgURL)
+            }
+        })    
+
+
     }    
 
     return (
@@ -54,7 +74,7 @@ function InstaPostForm(props) {
                         <Button onClick={()=>hiddenFileInput.current.click()}>
                             Add image
                         </Button>
-                        <input type="file" 
+                        <input type="file" name = "file"
                             // reference to this input element
                             ref={hiddenFileInput}
                             className="HiddenStyle"

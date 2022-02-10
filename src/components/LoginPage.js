@@ -18,6 +18,7 @@ const LoginPage = (props) => {
             }
         }).then(response => response.json()).then(responsejson => {
             if (responsejson.statusCode === 200) {
+                // parse converts stringify json object to actual json object
                 const userData = JSON.parse(responsejson.body)
                 props.setUserData(userData)
                 props.changePage("instaPostPage")

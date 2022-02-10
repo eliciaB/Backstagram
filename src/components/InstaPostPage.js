@@ -19,7 +19,7 @@ function InstaPostPage() {
         { 
             id: 1,
             caption: "jfojlak",
-            imgURL: "",
+            imgURL: "https://id54gv4pxf.execute-api.us-east-2.amazonaws.com/v1/s3item/f8025757-a0a1-4bde-87a2-14ddc4904d0e.jpg",
             liked: false,
             name: "Elicia Back",
             time: new Date().toString()
@@ -37,7 +37,7 @@ function InstaPostPage() {
             name: "Elicia Back",
             time: new Date().toString()
         }
-        
+
         setInstaPostList(   [...instaPostList, newInstaPost])
     }
 
