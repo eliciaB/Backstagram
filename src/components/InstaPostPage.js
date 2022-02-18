@@ -26,17 +26,33 @@ function InstaPostPage() {
         },    
     ])
 
-    function addInstaPost(newPostImgURL, newPostCaption) {
+    function addInstaPost(newPostImgUUID, newPostCaption) {
         // creating new ID for new insta post
         const newId = instaPostList[instaPostList.length-1].id+1;
         const newInstaPost = {
             id: newId,
             caption: newPostCaption,
-            imgURL: newPostImgURL,
+            imgURL: "https://id54gv4pxf.execute-api.us-east-2.amazonaws.com/v1/s3item/" + newPostImgUUID,
             liked: false, 
             name: "Elicia Back",
             time: new Date().toString()
         }
+
+        fetch("https://id54gv4pxf.execute-api.us-east-2.amazonaws.com/v1/posts" , {
+            method: "POST", 
+            body: JSON.stringify({
+                caption: newPostCaption,
+                imageUuid: newPostImgUUID,
+                timePosted: new Date().toString()
+            }), 
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(response => response.json()).then(responsejson => {
+            if (responsejson.statusCode === 200) {
+                debugger
+            }
+        })    
 
         setInstaPostList(   [...instaPostList, newInstaPost])
     }

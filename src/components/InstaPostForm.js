@@ -1,5 +1,5 @@
 import { Paper, TextField, Button, Grid } from '@material-ui/core'
-import React from 'react'
+import React, { useState } from 'react'
 
 /**
  * this is a react component created as a function
@@ -8,6 +8,7 @@ import React from 'react'
 function InstaPostForm(props) {
     const [formText, setFormText] = React.useState("")
     const [formImgURL, setFormImgURL] = React.useState(null)
+    const [formUUIDImg, setFormUUIDImg] = React.useState("")
     
     // Create a reference to the hidden file input element
     const hiddenFileInput = React.useRef(null);
@@ -34,6 +35,7 @@ function InstaPostForm(props) {
             if (responsejson.statusCode === 200) {
                 const imageData = JSON.parse(responsejson.body)
                 const imageUUID = imageData.item_s3_id
+                setFormUUIDImg(imageUUID)
                 const imgURL = "https://id54gv4pxf.execute-api.us-east-2.amazonaws.com/v1/s3item/" + imageUUID
                 setFormImgURL(imgURL)
             }
@@ -85,7 +87,7 @@ function InstaPostForm(props) {
                         <Button onClick={()=>{
                             setFormImgURL(null)
                             setFormText("")
-                            props.addInstaPost(formImgURL, formText)
+                            props.addInstaPost(formUUIDImg, formText)
                         }}>
                              Post 
                         </Button>
