@@ -43,7 +43,8 @@ function InstaPostPage() {
             body: JSON.stringify({
                 caption: newPostCaption,
                 imageUuid: newPostImgUUID,
-                timePosted: new Date().toString()
+                timePosted: new Date().toString(),
+                userUuid: "test4"
             }), 
             headers: {
                 "Content-Type": "application/json"
