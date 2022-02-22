@@ -50,11 +50,11 @@ function InstaPostPage() {
             }
         }).then(response => response.json()).then(responsejson => {
             if (responsejson.statusCode === 200) {
-                debugger
+                setInstaPostList([...instaPostList, newInstaPost])
             }
         })    
 
-        setInstaPostList(   [...instaPostList, newInstaPost])
+        
     }
 
     /**
