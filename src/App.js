@@ -20,7 +20,7 @@ function App() {
 
   React.useEffect(() => {
     if (pageName === "instaPostPage") {
-      setDisplayElement(<InstaPostPage/>)
+      setDisplayElement(<InstaPostPage userData = {userData}/>)
     } 
     if (pageName === "toDoPage") {
       setDisplayElement(<List/>)

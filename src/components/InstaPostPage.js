@@ -11,40 +11,57 @@ import Modal from '@material-ui/core/Modal';
  * this component is the page that holds the form for
  * creating instaPosts and all of the instaPosts
  */
-function InstaPostPage() {
+function InstaPostPage(props) {
 
     const [openForm, setOpenForm] = React.useState(false)
     
-    const [instaPostList, setInstaPostList] = React.useState([
-        { 
-            id: 1,
-            caption: "jfojlak",
-            imgURL: "https://id54gv4pxf.execute-api.us-east-2.amazonaws.com/v1/s3item/f8025757-a0a1-4bde-87a2-14ddc4904d0e.jpg",
-            liked: false,
-            name: "Elicia Back",
-            time: new Date().toString()
-        },    
-    ])
+    const [instaPostList, setInstaPostList] = React.useState([])
+
+    React.useEffect(()=>{
+        if (props.userData) {
+            const userDataPosts = props.userData.posts
+            userDataPosts.forEach(postId => {
+                fetch("https://id54gv4pxf.execute-api.us-east-2.amazonaws.com/v1/posts/" + postId, {
+                    method: "GET",
+                    headers:  {
+                        "Content-Type": "application/json"
+                    }
+                }).then(response => response.json()).then(responsejson => {
+                    if (responsejson.statusCode === 200) {
+                        const postData = JSON.parse(responsejson.body)
+                        // debugger
+                        setInstaPostList(currentPosts => [...currentPosts, {
+                            id: postData.uuid,
+                            caption: postData.caption,
+                            imgURL: "https://id54gv4pxf.execute-api.us-east-2.amazonaws.com/v1/s3item/" + postData.imageUuid,
+                            liked: false,
+                            name: postData.userFullName,
+                            time: postData.timePosted
+                        }])      
+                    }
+                })    
+            })
+        }
+    }, [props.userData])
 
     function addInstaPost(newPostImgUUID, newPostCaption) {
-        // creating new ID for new insta post
-        const newId = instaPostList[instaPostList.length-1].id+1;
         const newInstaPost = {
-            id: newId,
+            id: "fill me in with something real" + new Date().toString,
             caption: newPostCaption,
             imgURL: "https://id54gv4pxf.execute-api.us-east-2.amazonaws.com/v1/s3item/" + newPostImgUUID,
             liked: false, 
-            name: "Elicia Back",
+            name: props.userData.firstName + " " + props.userData.lastName,
             time: new Date().toString()
         }
-
+       
         fetch("https://id54gv4pxf.execute-api.us-east-2.amazonaws.com/v1/posts" , {
             method: "POST", 
             body: JSON.stringify({
                 caption: newPostCaption,
                 imageUuid: newPostImgUUID,
                 timePosted: new Date().toString(),
-                userUuid: "test4"
+                userUuid: props.userData.userUuid,
+                userFullName: props.userData.firstName + " " + props.userData.lastName
             }), 
             headers: {
                 "Content-Type": "application/json"
@@ -54,8 +71,6 @@ function InstaPostPage() {
                 setInstaPostList([...instaPostList, newInstaPost])
             }
         })    
-
-        
     }
 
     /**
