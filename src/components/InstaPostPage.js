@@ -112,7 +112,11 @@ function InstaPostPage(props) {
                     )
                 }
             </Grid>
-            <Fab onClick={()=>setOpenForm(true)}>
+            <Fab onClick={()=>setOpenForm(true)} style = {{
+                right: 40,
+                bottom: 40,
+                position: 'fixed',
+            }}>
                 <AddIcon/>
             </Fab>
             <Modal open={openForm} onClose={()=>setOpenForm(false)}>
