@@ -120,7 +120,15 @@ function InstaPostPage(props) {
                 <AddIcon/>
             </Fab>
             <Modal open={openForm} onClose={()=>setOpenForm(false)}>
-                <InstaPostForm addInstaPost={addInstaPost}/>
+                <div style = {{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    p: 4,
+                }}>
+                    <InstaPostForm addInstaPost={addInstaPost}/> 
+                </div>
             </Modal>
         </div>
     )
