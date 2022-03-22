@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import InstaPostForm from './InstaPostForm'
 import InstaPost from './InstaPost'
 import Grid from '@material-ui/core/Grid'
@@ -124,8 +124,7 @@ function InstaPostPage(props) {
                     position: 'absolute',
                     top: '50%',
                     left: '50%',
-                    transform: 'translate(-50%, -50%)',
-                    p: 4,
+                    transform: 'translate(-50%, -50%)'
                 }}>
                     <InstaPostForm addInstaPost={addInstaPost}/> 
                 </div>

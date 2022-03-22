@@ -35,9 +35,13 @@ const Header = (props) => {
                </div>
             </Slide> 
             <h2 className= "Style2">{subtitle}</h2>
-            <Button onClick = {() => updateHeader("instaPostPage")}>
-                InstaPostPage
-            </Button>
+            {
+                props.isLoggedIn ? (
+                    <Button onClick = {() => updateHeader("instaPostPage")}>
+                        InstaPostPage 
+                    </Button>
+                ) : null
+            }
             <Button onClick = {() => updateHeader("toDoPage")}>
                 ToDoPage
             </Button>

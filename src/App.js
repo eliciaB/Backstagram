@@ -17,6 +17,7 @@ function App() {
   const [pageName, setPageName] = React.useState("loginPage")
   const [userData, setUserData] = React.useState()
   const [message, setMessage] = React.useState("passmessage")
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false)
 
   React.useEffect(() => {
     if (pageName === "instaPostPage") {
@@ -36,12 +37,15 @@ function App() {
   React.useEffect(()=>{
     if (userData) {
       setMessage("Welcome, " + userData.firstName)
+      setIsLoggedIn(true)
     }
   }, [userData])
 
+
+
   return (
     <div className="App">
-      <Header title="To Do" changePage={setPageName} />
+      <Header title="To Do" changePage={setPageName} isLoggedIn={isLoggedIn} />
       <Grid container direction="row" justify="center" alignItems="center"> 
         <Grid item>
           {
