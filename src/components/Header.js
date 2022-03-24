@@ -42,15 +42,27 @@ const Header = (props) => {
                     </Button>
                 ) : null
             }
-            <Button onClick = {() => updateHeader("toDoPage")}>
-                ToDoPage
-            </Button>
-            <Button onClick = {() => updateHeader("loginPage")}>
-                LoginPage
-            </Button>
-            <Button onClick = {() => updateHeader("signUpPage")}>
-                SignUpPage
-            </Button>
+            {
+                props.isLoggedIn ? (
+                    <Button onClick = {() => updateHeader("toDoPage")}>
+                        ToDoPage
+                    </Button>
+                ) : null
+            }
+            {
+                !props.isLoggedIn ? (
+                    <Button onClick = {() => updateHeader("loginPage")}>
+                        LoginPage
+                    </Button> 
+                ) : null
+            }
+            {
+                !props.isLoggedIn ? (
+                    <Button onClick = {() => updateHeader("signUpPage")}>
+                        SignUpPage
+                    </Button>
+                ) : null  
+            }
         </div> 
     )
 }

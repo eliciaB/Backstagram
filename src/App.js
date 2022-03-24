@@ -45,7 +45,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header title="To Do" changePage={setPageName} isLoggedIn={isLoggedIn} />
+      <Header title="To Do" changePage={setPageName} isLoggedIn={isLoggedIn}/>
       <Grid container direction="row" justify="center" alignItems="center"> 
         <Grid item>
           {
