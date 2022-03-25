@@ -41,11 +41,19 @@ function App() {
     }
   }, [userData])
 
+  const logout = () => {
+    setPageName("loginPage")
+    setIsLoggedIn(false)
+    setMessage("Goodbye, " + userData.firstName)
+    setUserData(null)
+  }
+
+  
 
 
   return (
     <div className="App">
-      <Header title="To Do" changePage={setPageName} isLoggedIn={isLoggedIn}/>
+      <Header title="To Do" changePage={setPageName} isLoggedIn={isLoggedIn} logout={logout}/>
       <Grid container direction="row" justify="center" alignItems="center"> 
         <Grid item>
           {

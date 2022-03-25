@@ -63,6 +63,13 @@ const Header = (props) => {
                     </Button>
                 ) : null  
             }
+           {
+               props.isLoggedIn ? (
+                    <Button onClick = {props.logout}>
+                        Logout
+                    </Button>
+               ) : null
+           } 
         </div> 
     )
 }
