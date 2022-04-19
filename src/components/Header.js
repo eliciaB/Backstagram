@@ -70,6 +70,13 @@ const Header = (props) => {
                     </Button>
                ) : null
            } 
+           {
+               props.isLoggedIn ? (
+                   <Button onClick = {() => updateHeader("userEditData")}>
+                       userEditData
+                   </Button>
+               ) : null
+           }
         </div> 
     )
 }

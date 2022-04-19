@@ -11,6 +11,7 @@ import InstaPostPage from './components/InstaPostPage';
 import LoginPage from './components/LoginPage';
 import SignUpPage from './components/SignUpPage';
 import MySnackBar from './components/MySnackBar';
+import UserEditData from './components/UserEditData';
 
 function App() {
   const [displayElement, setDisplayElement] = React.useState()
@@ -31,6 +32,9 @@ function App() {
     }
     if (pageName === "signUpPage") {
       setDisplayElement(<SignUpPage changePage = {setPageName}/>)
+    }
+    if (pageName === "userEditData") {
+      setDisplayElement(<UserEditData setUserData = {setUserData}/>)
     }
   }, [pageName])
 
