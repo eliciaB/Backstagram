@@ -34,9 +34,9 @@ function App() {
       setDisplayElement(<SignUpPage changePage = {setPageName}/>)
     }
     if (pageName === "userEditData") {
-      setDisplayElement(<UserEditData setUserData = {setUserData}/>)
+      setDisplayElement(<UserEditData  userData={userData}/>)
     }
-  }, [pageName])
+  }, [pageName, userData])
 
   React.useEffect(()=>{
     if (userData) {

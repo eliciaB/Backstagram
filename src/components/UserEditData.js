@@ -1,16 +1,25 @@
 import React from 'react'
-import { TextField } from '@material-ui/core'
+import { TextField, Button } from '@material-ui/core'
 
 const UserEditData = (props) => {
     const [firstName, setFirstName] = React.useState("")
     const [lastName, setLastName] = React.useState("")
     const [email, setEmail] = React.useState("")
   
+    React.useEffect(()=>{
+        if (props.userData.firstName) {
+            // debugger
+        }
+    }, [props.userData.firstName])
+
+    const saveContent = () => {
+        console.log(firstName, lastName, email)
+    }
   
     return (
         <div>
             <TextField variant = "outlined"
-                defaultValue = {email}
+                defaultValue = {props.userData.email}
                 label = "email"
                 onChange = {
                     (event)=>{
@@ -19,7 +28,7 @@ const UserEditData = (props) => {
                 }
             />
             <TextField variant = "outlined"
-                defaultValue = {firstName}
+                defaultValue = {props.userData.firstName}
                 label = "firstName"
                 onChange = {
                     (event)=>{
@@ -28,7 +37,7 @@ const UserEditData = (props) => {
                 }
             />
             <TextField variant = "outlined"
-                defaultValue = {lastName}
+                defaultValue = {props.userData.lastName}
                 label = "lastName"
                 onChange = {
                     (event)=>{
@@ -36,6 +45,9 @@ const UserEditData = (props) => {
                     }
                 } 
             />
+            <Button onClick = {saveContent}>
+                Save
+            </Button>
         </div>
     )
 }
