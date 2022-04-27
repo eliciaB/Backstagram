@@ -14,6 +14,21 @@ const UserEditData = (props) => {
 
     const saveContent = () => {
         console.log(firstName, lastName, email)
+        fetch("https://id54gv4pxf.execute-api.us-east-2.amazonaws.com/v1/users/" + props.userData.email, {
+            method: "PUT",
+            body: JSON.stringify({
+                email: email,
+                firstName: firstName,
+                lastName: lastName
+            }),
+            headers: {
+                "Content-Type": "application/json",
+            }
+        }).then(response => response.json()).then(responsejson => {
+            if (responsejson.statusCode === 200) {
+               debugger
+            }
+        }) 
     }
   
     return (
