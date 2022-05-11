@@ -3,11 +3,7 @@ import { Snackbar, IconButton, Button } from '@material-ui/core'
 
 const MySnackBar = (props) => {
     const [open, setOpen] = React.useState(false);
-
-    const handleClick = () => {
-        setOpen(true);
-    };
-
+    
     const handleClose = (event, reason) => {
         setOpen(false);
     };

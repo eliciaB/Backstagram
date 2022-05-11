@@ -26,7 +26,27 @@ const UserEditData = (props) => {
             }
         }).then(response => response.json()).then(responsejson => {
             if (responsejson.statusCode === 200) {
-               debugger
+                /**
+                 * 1.) get userData object from props and put into another variable
+                 * 2.) update copy userData object with updated info
+                 * 3.) call props.setUserData with updated copy of userData
+                 */
+
+
+                props.setMessage("Data saved" )
+                
+                const userDataCopy = props.userData 
+                if (firstName !== "") {
+                    userDataCopy.firstName = firstName
+                }
+                if (email !== "") {
+                    userDataCopy.email = email
+                }
+                if (lastName !== "") {
+                    userDataCopy.lastName = lastName
+                }
+                props.setUserData(userDataCopy)
+
             }
         }) 
     }

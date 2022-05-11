@@ -34,7 +34,7 @@ function App() {
       setDisplayElement(<SignUpPage changePage = {setPageName}/>)
     }
     if (pageName === "userEditData") {
-      setDisplayElement(<UserEditData  userData={userData}/>)
+      setDisplayElement(<UserEditData  userData={userData} setMessage={setMessage} setUserData={setUserData}/>)
     }
   }, [pageName, userData])
 
