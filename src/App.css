@@ -3,6 +3,12 @@
   align-items: center;
 }
 
+.MessagingIcon {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+}
+
 .SignUpPageForm {
   padding: 12px;
   margin-bottom: 16px;
