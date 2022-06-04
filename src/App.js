@@ -6,7 +6,7 @@ import Header from './components/Header'
 import ListItem from './components/ListItem'
 import List from './components/List'
 import InstaPost from './components/InstaPost';
-import { Grid, Button } from '@material-ui/core';
+import { Grid, Button, Drawer } from '@material-ui/core';
 import InstaPostPage from './components/InstaPostPage';
 import LoginPage from './components/LoginPage';
 import SignUpPage from './components/SignUpPage';
@@ -20,6 +20,7 @@ function App() {
   const [userData, setUserData] = React.useState()
   const [message, setMessage] = React.useState("passmessage")
   const [isLoggedIn, setIsLoggedIn] = React.useState(false)
+  const [openDrawer, setOpenDrawer] = React.useState(false)
 
   React.useEffect(() => {
     if (pageName === "instaPostPage") {
@@ -53,8 +54,6 @@ function App() {
     setUserData(null)
   }
 
-  
-
 
   return (
     <div className="App">
@@ -67,9 +66,14 @@ function App() {
         </Grid>
       </Grid>
       <MySnackBar message = {message}/>
-      <Button className = "MessagingIcon">
+      <Button onClick = {()=>setOpenDrawer(true)} className = "MessagingIcon">
         <ChatBubbleOutlineRoundedIcon fontSize='large'/>
       </Button>
+      <Drawer
+        open = {openDrawer}      
+      >
+        dhfeikf
+      </Drawer>
     </div>
   );
 }

@@ -4,7 +4,7 @@
 }
 
 .MessagingIcon {
-  position: fixed;
+  position: fixed !important;
   bottom: 50px;
   right: 50px;
 }
