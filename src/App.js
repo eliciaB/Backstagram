@@ -69,8 +69,9 @@ function App() {
       <Button onClick = {()=>setOpenDrawer(true)} className = "MessagingIcon">
         <ChatBubbleOutlineRoundedIcon fontSize='large'/>
       </Button>
-      <Drawer
-        open = {openDrawer}      
+      <Drawer anchor = "right" 
+        open = {openDrawer}     
+        onClose = {()=> setOpenDrawer(false)}
       >
         dhfeikf
       </Drawer>
