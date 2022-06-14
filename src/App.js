@@ -6,13 +6,15 @@ import Header from './components/Header'
 import ListItem from './components/ListItem'
 import List from './components/List'
 import InstaPost from './components/InstaPost';
-import { Grid, Button, Drawer } from '@material-ui/core';
+import { Grid, Button, Drawer, TextField } from '@material-ui/core'; 
 import InstaPostPage from './components/InstaPostPage';
 import LoginPage from './components/LoginPage';
 import SignUpPage from './components/SignUpPage';
 import MySnackBar from './components/MySnackBar';
 import UserEditData from './components/UserEditData';
 import ChatBubbleOutlineRoundedIcon from '@material-ui/icons/ChatBubbleOutlineRounded';
+import SendIcon from '@material-ui/icons/Send';
+import Chatroom from './components/Chatroom';
 
 function App() {
   const [displayElement, setDisplayElement] = React.useState()
@@ -20,7 +22,6 @@ function App() {
   const [userData, setUserData] = React.useState()
   const [message, setMessage] = React.useState("passmessage")
   const [isLoggedIn, setIsLoggedIn] = React.useState(false)
-  const [openDrawer, setOpenDrawer] = React.useState(false)
 
   React.useEffect(() => {
     if (pageName === "instaPostPage") {
@@ -66,15 +67,7 @@ function App() {
         </Grid>
       </Grid>
       <MySnackBar message = {message}/>
-      <Button onClick = {()=>setOpenDrawer(true)} className = "MessagingIcon">
-        <ChatBubbleOutlineRoundedIcon fontSize='large'/>
-      </Button>
-      <Drawer anchor = "right" 
-        open = {openDrawer}     
-        onClose = {()=> setOpenDrawer(false)}
-      >
-        dhfeikf
-      </Drawer>
+      <Chatroom />
     </div>
   );
 }

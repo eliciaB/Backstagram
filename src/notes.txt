@@ -33,5 +33,6 @@ NEW CHALLENGE
 
         -sign up should show error if reentered password does not match original password
 
-
+ "body": "[{\"messageText\": \"hiii\", \"uuid\": \"f62e5899-2b6a-4c7c-af86-0d29975682fd\", \"senderUuid\": \"test4\", \"timestamp\": \"1655248477\"}, {\"messageText\": \"hiii\", \"uuid\": \"0cf8506c-9e5a-4a5f-81c2-57792540284e\", \"senderUuid\": \"test4\", \"timestamp\": \"1655248568\"}, {\"uuid\": \"b696f18b-0990-4416-88b2-19f62e8e6c02\", \"messageText\": \"hiii\", \"senderUuid\": \"test4\", \"timestamp\": \"1655248809\"}]"
+}
 

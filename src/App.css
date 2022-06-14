@@ -3,6 +3,10 @@
   align-items: center;
 }
 
+.MessagesContainer {
+  height: 100%
+}
+
 .MessagingIcon {
   position: fixed !important;
   bottom: 50px;
