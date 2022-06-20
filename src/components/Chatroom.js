@@ -7,26 +7,22 @@ import ChatMessage from './ChatMessage';
 const Chatroom = () => {
   
     const [openDrawer, setOpenDrawer] = React.useState(false)
-    const [chatMessageList, setChatMessageList] = React.useState([
-        {
-            messageText: "merry christmas",
-            uuid: "f62e5899-2b6a-4c7c-af86-0d29975682fd",
-            senderUuid: "test4",
-            timestamp: "1655248477"
-        },
-        {
-            messageText: "hiii",
-            uuid: "0cf8506c-9e5a-4a5f-81c2-57792540284e",
-            senderUuid: "test4",
-            timestamp: "1655248568"
-        },
-        {
-            uuid: "b696f18b-0990-4416-88b2-19f62e8e6c02",
-            messageText: "hiii",
-            senderUuid: "test4",
-            timestamp: "1655248809"
-        }
-    ])
+    const [chatMessageList, setChatMessageList] = React.useState([])
+
+    React.useEffect(() => {
+        fetch("https://id54gv4pxf.execute-api.us-east-2.amazonaws.com/v1/globalchatroom/messages", {
+            method: "GET",
+            headers:  {
+                "Content-Type": "application/json"
+            }
+
+        }).then(response => response.json()).then(responsejson => {
+            if (responsejson.statusCode === 200) {
+                const chatData = JSON.parse(responsejson.body)
+                setChatMessageList(chatData)
+            }
+        })
+    }, [])
 
     const sendMessage = () => {
         fetch("https://id54gv4pxf.execute-api.us-east-2.amazonaws.com/v1/globalchatroom/messages", {
@@ -35,13 +31,14 @@ const Chatroom = () => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                messageText: "hiii",
+                messageText: "pop",
                 senderUuid: "test4"
             })
 
         }).then(response => response.json()).then(responsejson => {
             if (responsejson.statusCode === 200) {
-                debugger
+                const chatData = JSON.parse(responsejson.body)
+                setChatMessageList(chatData)
             }
         })
     }
