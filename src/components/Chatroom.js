@@ -8,6 +8,7 @@ const Chatroom = () => {
   
     const [openDrawer, setOpenDrawer] = React.useState(false)
     const [chatMessageList, setChatMessageList] = React.useState([])
+    const [newChatMessage, setNewChatMessage] = React.useState()
 
     React.useEffect(() => {
         fetch("https://id54gv4pxf.execute-api.us-east-2.amazonaws.com/v1/globalchatroom/messages", {
@@ -31,7 +32,7 @@ const Chatroom = () => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                messageText: "pop",
+                messageText: newChatMessage,
                 senderUuid: "test4"
             })
 
@@ -44,7 +45,7 @@ const Chatroom = () => {
     }
 
     return (
-        <div>  
+        <div> 
             <Button onClick = {()=>setOpenDrawer(true)} className = "MessagingIcon">
                 <ChatBubbleOutlineRoundedIcon fontSize='large'/>
             </Button>
@@ -68,7 +69,13 @@ const Chatroom = () => {
                     </Grid>
                 </div>
                 <Grid container direction = "row" justify = "flex-end" alignItems = "center">
-                    <TextField/>
+                    <TextField
+                        onChange = {
+                            (event) => {
+                                setNewChatMessage(event.target.value)
+                            }
+                        }
+                    />
                     <Button onClick={sendMessage}>
                         <SendIcon relative/>
                     </Button>
