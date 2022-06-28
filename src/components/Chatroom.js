@@ -3,6 +3,8 @@ import { Grid, Button, Drawer, TextField } from '@material-ui/core';
 import ChatBubbleOutlineRoundedIcon from '@material-ui/icons/ChatBubbleOutlineRounded';
 import SendIcon from '@material-ui/icons/Send';
 import ChatMessage from './ChatMessage';
+import 'simplebar';
+import 'simplebar/dist/simplebar.css';
 
 const Chatroom = () => {
   
@@ -53,7 +55,7 @@ const Chatroom = () => {
                 open = {openDrawer}     
                 onClose = {()=> setOpenDrawer(false)}
             >
-                <div className = "MessagesContainer">
+                <div className = "MessagesContainer" data-simplebar>
                     <Grid container alignItems="center" direction="column"  justify="flex-start" spacing={3}>
                         {
                             chatMessageList.map(
