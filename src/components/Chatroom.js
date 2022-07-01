@@ -11,6 +11,8 @@ const Chatroom = () => {
     const [openDrawer, setOpenDrawer] = React.useState(false)
     const [chatMessageList, setChatMessageList] = React.useState([])
     const [newChatMessage, setNewChatMessage] = React.useState()
+    const bottomOfChatRef = React.useRef(null)
+
 
     React.useEffect(() => {
         fetch("https://id54gv4pxf.execute-api.us-east-2.amazonaws.com/v1/globalchatroom/messages", {
@@ -42,6 +44,7 @@ const Chatroom = () => {
             if (responsejson.statusCode === 200) {
                 const chatData = JSON.parse(responsejson.body)
                 setChatMessageList(chatData)
+                bottomOfChatRef.current.scrollIntoView({ behavior: "smooth" })
             }
         })
     }
@@ -68,10 +71,18 @@ const Chatroom = () => {
                                 }
                             )
                         }
+                        <div ref = {bottomOfChatRef}/>
                     </Grid>
                 </div>
                 <Grid container direction = "row" justify = "flex-end" alignItems = "center">
-                    <TextField
+                    <TextField 
+                        onKeyDown={
+                            (event) => {
+                                if (event.code == "Enter") {
+                                    sendMessage()
+                                }
+                            }
+                        }
                         onChange = {
                             (event) => {
                                 setNewChatMessage(event.target.value)
