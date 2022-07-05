@@ -45,7 +45,8 @@ const Chatroom = () => {
                 const chatData = JSON.parse(responsejson.body)
                 setChatMessageList(chatData)
                 bottomOfChatRef.current.scrollIntoView({ behavior: "smooth" })
-            }
+                setNewChatMessage("")
+            } 
         })
     }
 
@@ -75,7 +76,7 @@ const Chatroom = () => {
                     </Grid>
                 </div>
                 <Grid container direction = "row" justify = "flex-end" alignItems = "center">
-                    <TextField 
+                    <TextField value={newChatMessage}
                         onKeyDown={
                             (event) => {
                                 if (event.code == "Enter") {
