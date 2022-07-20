@@ -60,7 +60,7 @@ const Chatroom = () => {
                 onClose = {()=> setOpenDrawer(false)}
             >
                 <div className = "MessagesContainer" data-simplebar>
-                    <Grid container alignItems="center" direction="column"  justify="flex-start" spacing={3}>
+                    <Grid container alignItems="flex-start" direction="column"  justify="flex-start" spacing={3}>
                         {
                             chatMessageList.map(
                                 (chatMessage)=>{   

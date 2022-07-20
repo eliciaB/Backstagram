@@ -3,6 +3,17 @@
   align-items: center;
 }
 
+.ChatMessageDesign {
+  padding: 8px;
+  background-color: #5a8b5c !important;
+  color: white !important;
+}
+
+.ChatMessageTitle {
+  height: max-content;
+  width: max-content;
+}
+
 .MessagesContainer {
   height: 100%;
   width: 100%;
@@ -59,7 +70,8 @@
 
 .HeaderStyle {
   align-items: left;
-  color: limegreen;
+  color: #81c784
+  ;
   background-color: white;
 }
 
