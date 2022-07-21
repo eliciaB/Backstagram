@@ -6,7 +6,7 @@ const ChatMessage = (props) => {
     <div>
       <Grid container direction = "row" justifyContent='flex-start' alignContent='flex-start'>
         <Grid item>
-          <Avatar>
+          <Avatar className = "AvatarStyle">
             eb
           </Avatar>
         </Grid>

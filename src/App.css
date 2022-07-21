@@ -3,10 +3,16 @@
   align-items: center;
 }
 
+.AvatarStyle {
+  margin-left: 8px !important;
+}
+
 .ChatMessageDesign {
   padding: 8px;
+  margin-right: 12px;
   background-color: #5a8b5c !important;
   color: white !important;
+  border-radius: 15px !important;
 }
 
 .ChatMessageTitle {
@@ -16,7 +22,7 @@
 
 .MessagesContainer {
   height: 100%;
-  width: 100%;
+  width: 300px;
   overflow-y: auto;
   overflow-x: hidden;
 }
